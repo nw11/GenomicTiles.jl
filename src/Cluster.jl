@@ -198,7 +198,8 @@ end
 
 function aff_prop_cluster_tiles(tiles_matrix)
     println("affinity propogation ready")
-    similarity_matrix = -pairwise(Hamming(),tiles_matrix)
+    #similarity_matrix = -pairwise(Hamming(),tiles_matrix)
+    similarity_matrix = -pairwise(Euclidean(),tiles_matrix)
     af=affinityprop(similarity_matrix)
     return af
 end
