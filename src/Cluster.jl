@@ -196,10 +196,10 @@ function dbscan_hammings(tiles_matrix, eps=5,minpts=10)
     return ds #.assignments
 end
 
-function aff_prop_cluster_tiles(tiles_matrix)
+function aff_prop_cluster_tiles(tiles_matrix, distance=SqEuclidean())
     println("affinity propogation ready")
     #similarity_matrix = -pairwise(Hamming(),tiles_matrix)
-    similarity_matrix = -pairwise(SqEuclidean(),tiles_matrix)
+    similarity_matrix = -pairwise(distance,tiles_matrix)
     af=affinityprop(similarity_matrix)
     return af
 end
